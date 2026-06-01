@@ -1,6 +1,6 @@
 # Funktion, navn, argument
 def Myprint(myString):
-    
+
     """
     Prints the given string to console.
 
@@ -11,4 +11,4 @@ def Myprint(myString):
         None
     """
 
-    print(myString)
+    print(myString + "!!!!!")

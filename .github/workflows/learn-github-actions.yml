@@ -8,10 +8,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+
     steps:
       - uses: actions/checkout@v4
-      - name: Byg Docker image
-        run: docker build -t "dockergit" ./Docker
-      
-      - name: Test image
-        run: docker run "dockergit"
+
+      - name: login to GitHub container registry
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build docker image
+        run: docker build -t ghcr.io/${{ github.repository_owner }}/dockerkode:latest ./Docker
+
+      - name: Run docker image
+        run: docker run ghcr.io/${{ github.repository_owner }}/dockerkode:latest
+
+      - name: Push docker image
+        run: docker push ghcr.io/${{ github.repository_owner }}/dockerkode:latest

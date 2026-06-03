@@ -23,8 +23,8 @@ jobs:
       - name: Build docker image
         run: docker build -t ghcr.io/${{ github.repository_owner }}/dockerkode:latest ./DockerKubernetes
 
-      - name: Run docker image
-        run: docker run ghcr.io/${{ github.repository_owner }}/dockerkode:latest
+      - name: Run docker image (detached mode)
+        run: docker run -d ghcr.io/${{ github.repository_owner }}/dockerkode:latest
 
       - name: Push docker image
         run: docker push ghcr.io/${{ github.repository_owner }}/dockerkode:latest

@@ -7,10 +7,8 @@ def clear_screen():
 
 clear_screen()
 
-print("--------------------------------")
 print("I will pick a random number between 0 and a number you choose, and you have to guess it!")
 user_input = input("Type a number:")
-print("--------------------------------")
 
 clear_screen()
 
@@ -44,9 +42,11 @@ while True:
         print("Congratulations! You guessed the number!")
         break
     elif user_guess > random_number:
+        clear_screen()
         print("You guessed above the number, try again")
         continue
     else:
+        clear_screen()
         print("You guessed below the number, try again")
         continue
 

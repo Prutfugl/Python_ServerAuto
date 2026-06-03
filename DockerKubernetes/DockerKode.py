@@ -2,10 +2,10 @@ import random
 import os
 import time
 
-def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
+# f clear_screen():
+    # .system('cls' if os.name == 'nt' else 'clear')
 
-clear_screen()
+# ear_screen()
 
 print("The computer will generate a number between 0 and 100, it will the try to guess it")
 print("-------")
